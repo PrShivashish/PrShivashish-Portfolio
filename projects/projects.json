@@ -1,123 +1,102 @@
 [
   {
-    "name": "Vane VPN",
-    "desc": "Responsive website utilizing HTML, CSS, and JavaScript for Vane VPN, enhancing user privacy and security.",
-    "image": "vanevpn",
-    "category": "Web",
+    "name": "Profiled 2.0 — AI Career Architect",
+    "desc": "End-to-end AI career intelligence system that scrapes live job postings and computes ATS-style fit using NLP-based skill extraction and a FastAPI + PostgreSQL backend.",
+    "image": "profiled-2",
+    "category": "ML / NLP + Full-Stack Web",
     "links": {
-      "view": "https://prshivashish.github.io/Landing-Page-1/",
-      "code": "https://github.com/PrShivashish/Landing-Page-1"
+      "view": "https://profiled-2-0-ai-career-architect.onrender.com",
+      "code": "https://github.com/PrShivashish/Profiled-2.0---AI-Career-Architect"
     }
   },
   {
-    "name": "Groove",
-    "desc": "Modern virtual event management site Groove showcasing JavaScript, php, bootstrap, nodejs frontend development skills.",
-    "image": "groove",
-    "category": "web",
+    "name": "VITALS-AI",
+    "desc": "Production-oriented biomedical vision system that estimates heart and respiration rates from standard RGB video using an MTTS-CAN-inspired deep learning architecture.",
+    "image": "vitals-ai",
+    "category": "Biomedical Computer Vision",
     "links": {
-      "view": "#",
-      "code": "https://github.com/PrShivashish/Virtual-Event-Management-Website"
-    }
-  },
-  
-  {
-    "name": "3D-Menubar",
-    "desc": "Interactive 3D menubar website crafted with HTML, CSS, and JavaScript, enhancing user experience and navigation.",
-    "image": "menubar",
-    "category": "web",
-    "links": {
-      "view": "https://prshivashish.github.io/Stranger-Things-menu-bar-3d/",
-      "code": "https://github.com/PrShivashish/Stranger-Things-menu-bar-3d"
+      "view": "Launching it soon",
+      "code": "https://github.com/PrShivashish/VITALS-AI"
     }
   },
   {
-    "name": "New Year",
-    "desc": "Interactive New Year animation website created with HTML, CSS, JavaScript, reactjs, bootstrap featuring dynamic elements and engaging visuals",
-    "image": "newyear",
-    "category": "web",
+    "name": "AquaVisor — FloodSense AI",
+    "desc": "AI-powered flood-risk decision platform fusing satellite imagery and real-time weather signals into interactive risk maps and dashboards for city-scale early warning.",
+    "image": "aquavisor",
+    "category": "Geospatial AI",
     "links": {
-      "view": "https://prshivashish.github.io/New-Year-2024/",
-      "code": "https://github.com/PrShivashish/New-Year-2024"
+      "view": "https://www.linkedin.com/posts/shivashish-prusty_aquavisor-floodprediction-disastermanagement-activity-7383047848713441280-jvDa?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEhPKIkB7VHWblK2hkNgwRK6PKDb_wkscps",
+      "code": "https://github.com/PrShivashish/AquaVisor---Real-time-FloodSense-AI-Platform"
     }
   },
   {
-    "name": "FoodHub",
-    "desc": "FoodHub - Your one-stop destination for recipes and food orders. Explore, cook, and enjoy!",
-    "image": "foodhub",
-    "category": "web",
+    "name": "Synapse AI Terminal",
+    "desc": "AI-augmented dual-mode terminal (CLI + web UI) wired to Gemini for translating natural-language commands into safe, auditable shell operations and system monitoring.",
+    "image": "synapse",
+    "category": "AI Agents / DevTool",
     "links": {
-      "view": "https://www.linkedin.com/posts/shivashish-prusty-9a134429a_webdevelopment-codingcuisine-htmlcssmagic-activity-7141995293398478848-nqXB?utm_source=share&utm_medium=member_android",
-      "code": "https://github.com/PrShivashish/ByteBash-Hackathon-Food_Recipe_Website"
+      "view": "https://synapse-ai-terminal.onrender.com/",
+      "code": "https://github.com/PrShivashish/Synapse-AI-Terminal"
     }
   },
   {
-    "name": "Soil Erosion",
-    "desc": "Interactive website addressing soil erosion with HTML5, CSS3, JavaScript, wordpress providing comprehensive insights and solutions.",
-    "image": "soil",
-    "category": "web",
+    "name": "SourceFlow",
+    "desc": "React + TypeScript context-packaging extension that ingests full repositories into token-optimized, LLM-ready prompts for deep architectural analysis.",
+    "image": "sourceflow",
+    "category": "DevTool",
     "links": {
-      "view": "https://prshivashish.github.io/Soil-Erosion-Website-Uncovering-The-Impact/",
-      "code": "https://github.com/PrShivashish/Soil-Erosion-Website-Uncovering-The-Impact"
+      "view": "https://www.linkedin.com/posts/shivashish-prusty_i-didnt-become-an-engineer-to-be-a-professional-activity-7418262699182149632-bVmG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEhPKIkB7VHWblK2hkNgwRK6PKDb_wkscps",
+      "code": "https://github.com/PrShivashish/SourceFlow"
     }
   },
   {
-    "name": "Parallax-Website",
-    "desc": "A dynamic parallax website crafted with HTML, CSS, JavaScript, Bootstrap offering immersive scrolling experiences.",
-    "image": "parallax",
-    "category": "web",
+    "name": "CoLab",
+    "desc": "Browser-based collaborative development environment featuring real-time multi-user state synchronization and low-latency updates across shared artifacts.",
+    "image": "colab",
+    "category": "Full-Stack Web",
     "links": {
-      "view": "https://prshivashish.github.io/Forest-Parallex-Website-main/",
-      "code": "https://github.com/PrShivashish/Forest-Parallex-Website-main"
+      "view": "https://colab-live.vercel.app/",
+      "code": "https://github.com/PrShivashish/CoLab"
     }
   },
   {
-    "name": "Calculator",
-    "desc": "Interactive calculator website developed with JavaScript, Python, CSS3 showcasing arithmetic operations and user-friendly interface.",
-    "image": "calculator",
-    "category": "web",
+    "name": "CrowdFadeAI",
+    "desc": "Privacy-first video pipeline running real-time face re-identification via ArcFace and ONNX Runtime on CUDA to selectively blur bystanders while keeping the primary subject sharp.",
+    "image": "crowdfade",
+    "category": "Computer Vision",
     "links": {
-      "view": "https://prshivashish.github.io/Calculator/",
-      "code": "https://github.com/PrShivashish/Calculator"
+      "view": "https://www.linkedin.com/posts/shivashish-prusty_ai-privacy-opensource-activity-7424090087367516160-DSMi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEhPKIkB7VHWblK2hkNgwRK6PKDb_wkscps",
+      "code": "https://github.com/PrShivashish/CrowdFadeAI"
     }
   },
   {
-    "name": "Pathway-Travel Site",
-    "desc": "Pathway: A dynamic travel website crafted with HTML, CSS, and JavaScript for seamless exploration and booking experiences.",
-    "image": "pathway",
-    "category": "web",
+    "name": "PantryIQ",
+    "desc": "Intelligent culinary recommender system using a greedy-graph-backtracking algorithmic pipeline to compute optimal, waste-minimizing meal plans from pantry inventory.",
+    "image": "pantryiq",
+    "category": "Algorithmic Product",
     "links": {
-      "view": "https://prshivashish.github.io/Travel-Professional-website/",
-      "code": "https://github.com/PrShivashish/Travel-Professional-website"
+      "view": "https://pantryiq.onrender.com/",
+      "code": "https://github.com/PrShivashish/PantryIQ"
     }
   },
   {
-    "name": "Growth",
-    "desc": "Modern website Growth showcasing frontend development skills with bootstrap, CSS, JavaScript, ReactJS for an engaging user experience.",
-    "image": "growth",
-    "category": "web",
+    "name": "ArogyaSaathi",
+    "desc": "Production-grade cardiovascular risk platform coupling a Random Forest ML pipeline with a Flask API to deliver highly accurate, clinically explainable predictions.",
+    "image": "arogyasaathi",
+    "category": "Healthcare ML Platform",
     "links": {
-      "view": "#",
-      "code": "https://github.com/PrShivashish/Professional-Startup-Website"
+      "view": "https://www.linkedin.com/posts/shivashish-prusty_innovation-technology-entrepreneurship-activity-7392207868617400320-6sFP?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEhPKIkB7VHWblK2hkNgwRK6PKDb_wkscps",
+      "code": "https://github.com/PrShivashish/ArogyaSaathi"
     }
   },
   {
-    "name": "3D Cube",
-    "desc": "Interactive 3D cube website with multi-window interaction, crafted using JS, ReactJS, Bootstrap for engaging user experiences.",
-    "image": "cube",
-    "category": "web",
+    "name": "Tryvity",
+    "desc": "Manifest V3 Chrome extension bringing AI-powered virtual try-on to major e-commerce sites by orchestrating multi-modal calls to Gemini Flash via DOM context detection.",
+    "image": "tryvity",
+    "category": "Applied CV + LLM",
     "links": {
-      "view": "https://prshivashish.github.io/3D-Design-1/",
-      "code": "https://github.com/PrShivashish/3D-Design-1"
-    }
-  },
-  {
-    "name": "3D Sphere",
-    "desc": "Interactive 3D sphere web application featuring multi-window interaction, crafted with JS, ReactJS, NodeJS, Bootstrap.",
-    "image": "sphere",
-    "category": "web",
-    "links": {
-      "view": "https://prshivashish.github.io/3D-Design-2/",
-      "code": "https://www.linkedin.com/posts/shivashish-prusty-9a134429a_webdesign-javascriptmagic-html5-activity-7147133996697542656-LZ3h?utm_source=share&utm_medium=member_android"
+      "view": "https://www.linkedin.com/posts/shivashish-prusty_innovation-technology-entrepreneurship-activity-7387490396777594880-NaXU?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEhPKIkB7VHWblK2hkNgwRK6PKDb_wkscps",
+      "code": "https://github.com/PrShivashish/Tryvity"
     }
   }
 ]
