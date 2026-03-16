@@ -760,6 +760,13 @@ header .navbar ul li a:hover {
 /* work section ends */
 
 /* experience section starts */
+.experience .quote {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
 .experience .timeline {
   position: relative;
   max-width: 1200px;

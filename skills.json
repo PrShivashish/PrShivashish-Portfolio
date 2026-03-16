@@ -1,64 +1,74 @@
 [
     {
-        "name": "ReactJS",
-        "icon": "https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png"
-    },
-    
-    {
-        "name": "NodeJS",
-        "icon": "https://img.icons8.com/color/48/000000/nodejs.png"
-    },
-    
-    {
-        "name": "Bootstrap",
-        "icon": "https://img.icons8.com/color/48/000000/bootstrap.png"
-    },
-    
-    {
-        "name": "HTML5",
-        "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
-    },
-    {
-        "name": "CSS3",
-        "icon": "https://img.icons8.com/color/48/000000/css3.png"
-    },
-    {
-        "name": "JavaScript",
-        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
-    },
-    {
-        "name": "Java",
-        "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"
-    },
-    
-    {
-        "name": "PHP",
-        "icon": "https://img.icons8.com/offices/48/000000/php-logo.png"
-    },
-    {
-        "name": "Python",
+        "name": "Python (AI/ML)",
         "icon": "https://img.icons8.com/color/48/000000/python--v1.png"
     },
     {
-        "name": "C++",
-        "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"
+        "name": "FastAPI",
+        "icon": "https://img.icons8.com/color/48/000000/lightning-bolt.png"
     },
-    
     {
-        "name": "MySQL",
-        "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
+        "name": "Flask",
+        "icon": "https://img.icons8.com/fluency/48/000000/flask.png"
     },
-    
     {
-        "name": "Git VCS",
+        "name": "TensorFlow",
+        "icon": "https://img.icons8.com/color/48/000000/tensorflow.png"
+    },
+    {
+        "name": "PyTorch",
+        "icon": "https://img.icons8.com/?size=48&id=jH4BpkMnRrU5&format=png"
+    },
+    {
+        "name": "scikit-learn",
+        "icon": "https://img.icons8.com/color/48/000000/artificial-intelligence.png"
+    },
+    {
+        "name": "Pandas & NumPy",
+        "icon": "https://img.icons8.com/color/48/000000/database.png"
+    },
+    {
+        "name": "OpenCV & Computer Vision",
+        "icon": "https://img.icons8.com/?size=48&id=bpip0gGiBLT1&format=png"
+    },
+    {
+        "name": "n8n & LangChain (Agentic AI)",
+        "icon": "https://runacap.com/wp-content/uploads/2020/03/n8n-logo.svg"
+    },
+    {
+        "name": "React",
+        "icon": "https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png"
+    },
+    {
+        "name": "Next.js",
+        "icon": "https://img.icons8.com/?size=48&id=yUdJlcKanVbh&format=png"
+    },
+    {
+        "name": "TypeScript & JavaScript",
+        "icon": "https://img.icons8.com/color/48/000000/typescript.png"
+    },
+    {
+        "name": "Tailwind CSS",
+        "icon": "https://img.icons8.com/color/48/000000/tailwindcss.png"
+    },
+    {
+        "name": "PostgreSQL & MongoDB",
+        "icon": "https://img.icons8.com/?size=48&id=38561&format=png"
+    },
+    {
+        "name": "Docker",
+        "icon": "https://img.icons8.com/color/48/000000/docker.png"
+    },
+    {
+        "name": "AWS & GCP",
+        "icon": "https://img.icons8.com/?size=48&id=33039&format=png"
+    },
+    {
+        "name": "Git & GitHub",
         "icon": "https://img.icons8.com/color/48/000000/git.png"
     },
     {
-        "name": "GitHub",
-        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
-    },
-    {
-        "name": "WordPress",
-        "icon": "https://img.icons8.com/color/48/000000/wordpress.png"
-    }    
+        "name": "Jupyter & Experimentation",
+        "icon": "https://img.icons8.com/?size=48&id=J0SgMWzAxqFj&format=png"
+    }
 ]
