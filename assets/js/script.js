@@ -73,20 +73,12 @@ $(document).ready(function () {
       .then(function (response) {
         console.log('EmailJS SUCCESS!', response.status, response.text);
 
-        // Construct the structured WhatsApp message payload based on the Lead Template
-        const waMessage = `System Alert: A new connection request was initiated from the portfolio terminal.\n\n👤 Name: ${name}\n✉️ Email: ${email}\n📱 Phone: ${phone}\n\n💬 Message Payload:\n${message}`;
-
-        // Construct the WhatsApp API URL with the phone number and encoded payload text
-        const whatsappUrl = `https://wa.me/916370481899?text=${encodeURIComponent(waMessage)}`;
-
-        // 4. Guaranteed chronological execution: open WA ONLY after email is verified successful
-        window.open(whatsappUrl, '_blank');
-
-        // Clear the form, restore button, show success alert
+        // 4. Guaranteed chronological execution (WA decoupled to Floating Button)
+        // Clear the form, restore button, show witty success alert
         document.getElementById("contact-form").reset();
         submitBtn.innerHTML = originalBtnHTML;
         submitBtn.disabled = false;
-        alert("Form Submitted Successfully to Email & WhatsApp!");
+        alert("Boom! 🚀 Transmission received loud and clear. Your message is flying through the cyberwaves to Shivashish's inbox right now. He'll get back to you shortly! ⚡");
       }, function (error) {
         console.error('EmailJS FAILED...', error);
         // Error Resilience: Restore button, notify user gracefully with exact API error
@@ -428,3 +420,66 @@ srtop.reveal('.experience .timeline .container', { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+/* ==========================================
+   PREMIUM STICKY SOCIAL BAR ANIMATION LOGIC
+   ========================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  const stickyBar = document.getElementById('sticky-social-bar');
+  const heroSection = document.querySelector('.home');
+  const footerSection = document.querySelector('.footer');
+
+  if (stickyBar && heroSection && footerSection) {
+    // Create an Intersection Observer to watch the hero and footer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1 // Trigger when at least 10% of the section is visible
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      let isHeroOrFooterVisible = false;
+
+      // Check if either the hero or footer is currently intersecting the viewport
+      // We need to keep track of their states. A simple way is to check bounding rects
+      // or just maintain a state variable. For robustness against scrolling speeds:
+      
+      const heroRect = heroSection.getBoundingClientRect();
+      const footerRect = footerSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+      // If hero bottom is below top of screen AND hero top is above bottom of screen
+      const heroVisible = (heroRect.top <= windowHeight) && (heroRect.bottom >= 0);
+      // If footer bottom is below top of screen AND footer top is above bottom of screen
+      const footerVisible = (footerRect.top <= windowHeight) && (footerRect.bottom >= 0);
+
+      if (heroVisible || footerVisible) {
+        // User is at the top or bottom, hide the sticky bar
+        stickyBar.classList.remove('show');
+      } else {
+        // User is in the middle content, show the sticky bar
+        stickyBar.classList.add('show');
+      }
+    }, observerOptions);
+
+    // Initial check on load
+    sectionObserver.observe(heroSection);
+    sectionObserver.observe(footerSection);
+    
+    // Add a scroll listener as a highly responsive fallback for rapid scrolling
+    window.addEventListener('scroll', () => {
+      const heroRect = heroSection.getBoundingClientRect();
+      const footerRect = footerSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+      const heroVisible = (heroRect.bottom > 100); // 100px threshold for smoother exit
+      const footerVisible = (footerRect.top < windowHeight - 100); 
+
+      if (heroVisible || footerVisible) {
+        stickyBar.classList.remove('show');
+      } else {
+        stickyBar.classList.add('show');
+      }
+    });
+  }
+});
