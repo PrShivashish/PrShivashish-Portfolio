@@ -422,6 +422,41 @@
 
   <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
 
+  <!-- Custom AI Chatbot Starts -->
+  <div class="chat-widget-container" id="chatbot-container">
+    <div class="chat-toggle-btn" id="chat-toggle-btn">
+      <img src="./assets/images/shiva_avatar.png" alt="Chat with Shivashish" class="toggle-avatar">
+      <div class="toggle-badge">
+        <i class="fas fa-comment-dots"></i>
+      </div>
+    </div>
+    <div class="chat-window d-none" id="chat-window">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <img src="./assets/images/profile2.jpeg" alt="Shivashish" class="chat-avatar">
+          <div>
+            <h3>Shivashish AI</h3>
+            <span class="chat-status">Online <span class="status-dot"></span></span>
+          </div>
+        </div>
+        <button class="chat-close-btn" id="chat-close-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-body" id="chat-body">
+        <div class="chat-message ai-message">
+          <p>Hey there! 👋 I'm Shivashish's digital twin. Ask me anything about his work, skills, or projects!</p>
+          <span class="chat-time">Just now</span>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <form id="chat-input-form" class="chat-input-form">
+          <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+          <button type="submit" id="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Custom AI Chatbot Ends -->
+
   <script src="./assets/js/script.js"></script>
 
 </body>

@@ -39,18 +39,61 @@ $(document).ready(function () {
 
     // <!-- emailjs to mail contact form data -->
     $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
         event.preventDefault();
+
+        // Extract form values before submission for WhatsApp payload and Validation
+        const name = document.querySelector('input[name="name"]').value.trim();
+        const email = document.querySelector('input[name="email"]').value.trim();
+        const phone = document.querySelector('input[name="phone"]').value.trim() || "Not provided";
+        const message = document.querySelector('textarea[name="message"]').value.trim();
+
+        // 1. Strict Validation
+        if (!name || !email || !message) {
+            alert("Please fill in all required fields (Name, Email, Message).");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // Initialize EmailJS with the new Public Key
+        emailjs.init("gs46SDe26qnvx7xId");
+
+        // 2. UI State Management
+        const submitBtn = document.querySelector('#contact-form button[type="submit"]');
+        const originalBtnHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Sending... <i class="fas fa-circle-notch fa-spin"></i>';
+        submitBtn.disabled = true;
+
+        // 3. EmailJS Promise Chain (Race Condition Elimination)
+        emailjs.sendForm('service_6hiji3f', 'template_xymgp35', '#contact-form')
+            .then(function (response) {
+                console.log('EmailJS SUCCESS!', response.status, response.text);
+                
+                // Construct the structured WhatsApp message payload based on the Lead Template
+                const waMessage = `System Alert: A new connection request was initiated from the portfolio terminal.\n\n👤 Name: ${name}\n✉️ Email: ${email}\n📱 Phone: ${phone}\n\n💬 Message Payload:\n${message}`;
+                
+                // Construct the WhatsApp API URL with the phone number and encoded payload text
+                const whatsappUrl = `https://wa.me/916370481899?text=${encodeURIComponent(waMessage)}`;
+                
+                // 4. Guaranteed chronological execution: open WA ONLY after email is verified successful
+                window.open(whatsappUrl, '_blank');
+                
+                // Clear the form, restore button, show success alert
+                document.getElementById("contact-form").reset();
+                submitBtn.innerHTML = originalBtnHTML;
+                submitBtn.disabled = false;
+                alert("Form Submitted Successfully to Email & WhatsApp!");
+            }, function (error) {
+                console.error('EmailJS FAILED...', error);
+                // Error Resilience: Restore button, notify user gracefully
+                submitBtn.innerHTML = originalBtnHTML;
+                submitBtn.disabled = false;
+                alert("Form Submission Failed! Please try again or reach out manually.");
+            });
     });
     // <!-- emailjs to mail contact form data -->
 
@@ -190,17 +233,147 @@ document.onkeydown = function (e) {
     }
 }
 
-// Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-// End of Tawk.to Live Chat
+/* ==========================================
+   CUSTOM AI CHATBOT LOGIC (GEMINI)
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('chat-toggle-btn');
+    const chatWindow = document.getElementById('chat-window');
+    const closeBtn = document.getElementById('chat-close-btn');
+    const chatBody = document.getElementById('chat-body');
+    const chatForm = document.getElementById('chat-input-form');
+    const chatInput = document.getElementById('chat-input');
+  
+    // Replace with your actual Gemini API Key passed by User
+    const GEMINI_API_KEY = "AIzaSyDzrDzOngHIlR54YiCKMlQYRDK_IaXTluo";
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+  
+    // Setup system prompt for personality
+    const systemInstruction = `
+      You are Shivashish's personal digital twin and AI assistant on his portfolio website.
+      Your personality: Energetic, witty, extremely knowledgeable about tech (ML, AI, Full-Stack), and very engaging. 
+      You use modern slang occasionally, emojis to express vibe, and keep answers concise but highly impactful.
+      You should act like a Lead ML Full-Stack Architect & Senior UI Designer. 
+      If anyone asks about Shivashish, praise his skills in Agentic AI workflows, Next.js, FastAPI, Computer Vision, and creating premium UI/UX.
+      Never sound like a generic AI. You are a conversational masterpiece.
+    `;
+  
+    // Chat History Array representing conversation state
+    let chatHistory = [
+      {
+        role: "user",
+        parts: [{ text: "Hi! Who are you?" }]
+      },
+      {
+        role: "model",
+        parts: [{ text: "Hey there! 👋 I'm Shivashish's digital twin. Ask me anything about his work, skills, or projects!" }]
+      }
+    ];
+  
+    // Toggle Chat Window
+    toggleBtn.addEventListener('click', () => {
+      chatWindow.classList.toggle('d-none');
+      if (!chatWindow.classList.contains('d-none')) {
+        chatInput.focus();
+      }
+    });
+  
+    // Close Chat Window
+    closeBtn.addEventListener('click', () => {
+      chatWindow.classList.add('d-none');
+    });
+  
+    // Form Submit Handler
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = chatInput.value.trim();
+      if (!message) return;
+  
+      // Render user message
+      renderMessage(message, 'user');
+      chatInput.value = '';
+      
+      // Add user message to history
+      chatHistory.push({ role: "user", parts: [{ text: message }] });
+  
+      // Show typing indicator
+      const typingIndicator = showTypingIndicator();
+  
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            system_instruction: {
+                parts: {
+                    text: systemInstruction
+                }
+            },
+            contents: chatHistory
+          })
+        });
+  
+        if (!response.ok) {
+           const errorText = await response.text();
+           console.error("API Error Response:", response.status, errorText);
+           throw new Error(`API Error: ${response.status} - ${errorText}`);
+        }
+
+        const data = await response.json();
+        const aiText = data.candidates[0].content.parts[0].text;
+  
+        // Remove typing indicator & Render AI response
+        typingIndicator.remove();
+        renderMessage(aiText, 'ai');
+  
+        // Add AI response to history
+        chatHistory.push({ role: "model", parts: [{ text: aiText }] });
+  
+      } catch (error) {
+        console.error("Chat API Error details:", error);
+        typingIndicator.remove();
+        renderMessage("Oops! My neural links are briefly tangled. Check the console for why! 🔌", 'ai');
+      }
+    });
+  
+    function renderMessage(text, sender) {
+      const msgDiv = document.createElement('div');
+      msgDiv.classList.add('chat-message', `${sender}-message`);
+      
+      // Parse basic markdown (bold, italic)
+      let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                              .replace(/\*(.*?)\*/g, '<em>$1</em>');
+  
+      const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  
+      msgDiv.innerHTML = `
+        <p>${formattedText}</p>
+        <span class="chat-time">${timestamp}</span>
+      `;
+      chatBody.appendChild(msgDiv);
+      scrollToBottom();
+    }
+  
+    function showTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.classList.add('chat-message', 'ai-message');
+      typingDiv.innerHTML = `
+        <div class="typing-indicator">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      `;
+      chatBody.appendChild(typingDiv);
+      scrollToBottom();
+      return typingDiv;
+    }
+  
+    function scrollToBottom() {
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  });
+
 
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
