@@ -69,7 +69,7 @@ $(document).ready(function () {
     submitBtn.disabled = true;
 
     // 3. EmailJS Promise Chain (Race Condition Elimination)
-    emailjs.sendForm('service_6hiji3f', 'template_xymgp35', '#contact-form')
+    emailjs.sendForm('service_6hiji3f', 'template_gvpf1kf', '#contact-form')
       .then(function (response) {
         console.log('EmailJS SUCCESS!', response.status, response.text);
 
@@ -89,10 +89,10 @@ $(document).ready(function () {
         alert("Form Submitted Successfully to Email & WhatsApp!");
       }, function (error) {
         console.error('EmailJS FAILED...', error);
-        // Error Resilience: Restore button, notify user gracefully
+        // Error Resilience: Restore button, notify user gracefully with exact API error
         submitBtn.innerHTML = originalBtnHTML;
         submitBtn.disabled = false;
-        alert("Form Submission Failed! Please try again or reach out manually.");
+        alert(`Form Submission Failed! EmailJS Server Says: "${error.text || error.message || "Unknown error"}".\nPlease verify your Template ID and Service configuration and try again.`);
       });
   });
   // <!-- emailjs to mail contact form data -->
