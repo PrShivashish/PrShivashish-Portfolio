@@ -1,0 +1,545 @@
+/* ===========================================
+   NEURAL VAULT — Surgical Spectrum Design
+   (Stitch-designed: Light, premium, editorial)
+   =========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Nunito:wght@300;400;600;700&display=swap");
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f7f7f7;
+  color: #1a1c1c;
+  overflow-x: hidden;
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width: 6px; height: 3px; }
+::-webkit-scrollbar-track { background: #f3f3f3; }
+::-webkit-scrollbar-thumb { background: #fc8c05; border-radius: 3px; }
+
+/* ======================== HEADER ======================== */
+.vault-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 6%;
+  background: rgba(249, 249, 249, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.vault-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fc8c05;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+}
+
+.vault-nav {
+  display: flex;
+  gap: 2.8rem;
+  align-items: center;
+}
+
+.vault-nav a {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a1c1c;
+  text-transform: capitalize;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.2s ease;
+}
+
+.vault-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: #fc8c05;
+  transition: width 0.25s ease;
+}
+
+.vault-nav a:hover::after,
+.vault-nav a.active::after { width: 100%; }
+.vault-nav a.active { color: #fc8c05; }
+
+.vault-hamburger {
+  display: none;
+  font-size: 2.4rem;
+  color: #1a1c1c;
+  cursor: pointer;
+}
+
+/* ======================== HERO ======================== */
+.vault-hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14rem 9% 6rem;
+  background: linear-gradient(155deg, #f7f7f7 0%, #eef0ff 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Dot-grid blueprint overlay */
+.vault-hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(1,26,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.vault-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 85rem;
+}
+
+.vault-hero-overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.vault-shield-badge {
+  width: 3.6rem; height: 3.6rem;
+  border-radius: 50%;
+  background: #fc8c05;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.vault-hero-overline-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #564334;
+  text-transform: uppercase;
+  font-family: "Nunito", sans-serif;
+}
+
+.vault-hero-heading {
+  font-size: clamp(4.5rem, 7vw, 7.5rem);
+  font-weight: 800;
+  color: #1a1c1c;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  text-transform: none;
+}
+
+.vault-hero-heading span {
+  background: linear-gradient(135deg, #fc8c05, #011aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.vault-hero-sub {
+  font-size: 1.6rem;
+  color: #564334;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 70rem;
+  margin: 0 auto 4rem;
+  text-transform: none;
+}
+
+.vault-hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.vault-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vault-stat strong {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #1a1c1c;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.vault-stat span {
+  font-size: 1.2rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: #897362;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.vault-stat-divider {
+  width: 1px;
+  height: 3.5rem;
+  background: rgba(0,0,0,0.12);
+}
+
+/* ======================== FILTER BAR ======================== */
+.vault-filter-bar {
+  position: sticky;
+  top: 6.4rem;
+  z-index: 900;
+  background: rgba(249,249,249,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 1rem 6%;
+}
+
+.vault-filter-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.vault-filter-pill {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  padding: 0.5rem 1.8rem;
+  border-radius: 3rem;
+  border: 2px solid transparent;
+  background: transparent;
+  color: #564334;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+}
+
+.vault-filter-pill:hover {
+  color: #fc8c05;
+  border-color: rgba(252,140,5,0.4);
+}
+
+.vault-filter-pill.active {
+  background: #fc8c05;
+  color: #fff;
+  border-color: #fc8c05;
+}
+
+.vault-filter-count {
+  margin-left: auto;
+  font-size: 1.2rem;
+  font-family: "Nunito", sans-serif;
+  color: #897362;
+  font-weight: 600;
+}
+
+/* ======================== MAIN ROWS ======================== */
+.vault-main {
+  padding: 5rem 6% 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  background: #f7f7f7;
+}
+
+.vault-row { position: relative; }
+
+.vault-row.row-hidden { display: none; }
+
+/* Row label */
+.vault-row-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #1a1c1c;
+  text-transform: uppercase;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 2rem;
+}
+
+.vault-row-label-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.vault-dot--orange { background: #fc8c05; }
+.vault-dot--amber  { background: #ff9900; }
+.vault-dot--purple { background: #420177; }
+
+/* Scrollable row */
+.vault-row-scroll {
+  display: flex;
+  gap: 2.4rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vault-row-scroll::-webkit-scrollbar { height: 3px; }
+.vault-row-scroll::-webkit-scrollbar-thumb { background: #fc8c05; border-radius: 2px; }
+
+/* ======================== CREDENTIAL CARDS ======================== */
+.vault-card {
+  flex: 0 0 400px;
+  background: #ffffff;
+  border-radius: 1.4rem;
+  padding: 2.8rem 2.6rem 2.4rem 3.2rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 18px rgba(26,28,28,0.06);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.35s ease;
+}
+
+/* Left strip — ML-Pulse breathing */
+.vault-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  border-radius: 1.4rem 0 0 1.4rem;
+  animation: ml-pulse-vault 3s ease-in-out infinite alternate;
+}
+
+@keyframes ml-pulse-vault {
+  0%   { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* Shimmer sweep on hover */
+.vault-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.65), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.vault-card:hover::after { left: 150%; }
+
+.vault-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(26,28,28,0.09);
+}
+
+/* Strip colors */
+.vault-card--orange::before { background: #fc8c05; box-shadow: 2px 0 8px rgba(252,140,5,0.3); }
+.vault-card--blue::before   { background: #011aff; box-shadow: 2px 0 8px rgba(1,26,255,0.2); }
+.vault-card--purple::before { background: #420177; box-shadow: 2px 0 8px rgba(66,1,119,0.2); }
+
+/* Hidden via filter */
+.vault-card.vault-hidden { display: none !important; }
+
+/* Card header */
+.vault-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+/* Issuer badge */
+.vault-issuer-badge {
+  width: 5rem; height: 5rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  transition: box-shadow 0.3s ease;
+}
+
+.vault-badge--google     { background: rgba(66,133,244,0.1); color: #4285f4; border: 1.5px solid rgba(66,133,244,0.2); }
+.vault-badge--aws        { background: rgba(255,153,0,0.1);  color: #ff9900; border: 1.5px solid rgba(255,153,0,0.25); }
+.vault-badge--ibm        { background: rgba(15,98,254,0.1);  color: #0f62fe; border: 1.5px solid rgba(15,98,254,0.2); font-size: 1.35rem; }
+.vault-badge--springboard{ background: rgba(252,140,5,0.1);  color: #fc8c05; border: 1.5px solid rgba(252,140,5,0.25); }
+.vault-badge--firebase   { background: rgba(255,100,0,0.1);  color: #f57c00; border: 1.5px solid rgba(255,100,0,0.2); }
+
+.vault-card:hover .vault-badge--google { box-shadow: 0 0 18px rgba(66,133,244,0.35); }
+.vault-card:hover .vault-badge--aws    { box-shadow: 0 0 18px rgba(255,153,0,0.35); }
+.vault-card:hover .vault-badge--ibm    { box-shadow: 0 0 18px rgba(15,98,254,0.35); }
+.vault-card:hover .vault-badge--firebase { box-shadow: 0 0 18px rgba(255,100,0,0.35); }
+
+/* Card meta */
+.vault-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.vault-year {
+  font-size: 1.15rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: #897362;
+}
+
+.vault-verified {
+  font-size: 1.05rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: #1b6b3a;
+  background: rgba(27,107,58,0.09);
+  border: 1px solid rgba(27,107,58,0.18);
+  padding: 0.2rem 1rem;
+  border-radius: 3rem;
+  text-transform: none;
+}
+
+/* Title */
+.vault-card-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #1a1c1c;
+  line-height: 1.3;
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* Description */
+.vault-card-desc {
+  font-size: 1.3rem;
+  color: #564334;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  margin-bottom: 1.8rem;
+  text-transform: none;
+}
+
+/* Tags */
+.vault-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.vault-card-tags span {
+  font-size: 1.05rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  padding: 0.3rem 1.1rem;
+  border-radius: 3rem;
+  background: #e8e8e8;
+  color: #1a1c1c;
+  text-transform: none;
+}
+
+/* Card footer */
+.vault-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 1.5rem;
+  margin-top: auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.vault-issuer-name {
+  font-size: 1.15rem;
+  font-family: "Nunito", sans-serif;
+  color: #897362;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* CTA Link */
+.vault-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  color: #fc8c05;
+  text-decoration: none;
+  text-transform: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.vault-cta:hover {
+  border-bottom-color: #fc8c05;
+  color: #904d00;
+}
+
+/* ======================== FOOTER ======================== */
+.vault-footer {
+  text-align: center;
+  padding: 3rem 6% 5rem;
+  background: #f3f3f3;
+}
+
+.vault-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  color: #1a1c1c;
+  text-transform: none;
+  transition: color 0.2s ease;
+}
+
+.vault-back-link:hover { color: #fc8c05; }
+
+/* ======================== MOBILE ======================== */
+@media (max-width: 768px) {
+  .vault-nav { display: none; }
+  .vault-hamburger { display: block; }
+
+  .vault-hero { padding: 13rem 6% 5rem; }
+  .vault-hero-heading { font-size: 4rem; }
+  .vault-hero-sub { font-size: 1.4rem; }
+
+  .vault-hero-stats { gap: 2rem; }
+  .vault-stat strong { font-size: 2.6rem; }
+
+  .vault-card { flex: 0 0 85vw; }
+  .vault-main { padding: 4rem 5% 5rem; }
+
+  .vault-filter-inner { gap: 0.6rem; }
+  .vault-filter-count { display: none; }
+}

@@ -125,18 +125,96 @@ async function fetchData(type = "skills") {
 }
 
 function showSkills(skills) {
+  let skillsSection = document.getElementById("skills");
   let skillsContainer = document.getElementById("skillsContainer");
-  let skillHTML = "";
-  skills.forEach(skill => {
-    skillHTML += `
-        <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`
+  if (!skillsContainer || !skillsSection) return;
+
+  // Kinetic Spotlight Telemetry (Senior UI/UX Architect Standard)
+  skillsSection.addEventListener("mousemove", (e) => {
+    const rect = skillsSection.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    skillsSection.style.setProperty("--mouse-x", `${x}px`);
+    skillsSection.style.setProperty("--mouse-y", `${y}px`);
   });
+
+  // Elite Categorization (Luminous Vault Masterpiece Edition)
+  const categories = {
+    "Cognitive Engines": {
+      tag: "AI, ML & Vision",
+      desc: "Architecting intelligence through deep neural representations.",
+      class: "bento-card--cognitive",
+      skills: ["Python (AI/ML)", "TensorFlow", "PyTorch", "scikit-learn", "Pandas & NumPy", "OpenCV & Computer Vision", "n8n & LangChain (Agentic AI)", "Jupyter & Experimentation"],
+      items: []
+    },
+    "The Nervous System": {
+      tag: "Backend & Ops",
+      desc: "The invisible architecture powering high-performance systems.",
+      class: "bento-card--nervous",
+      skills: ["FastAPI", "Flask", "PostgreSQL & MongoDB", "Docker", "AWS & GCP", "Git & GitHub"],
+      items: []
+    },
+    "Tactile Interfaces": {
+      tag: "Frontend & UX",
+      desc: "Where human psychology meets pixel-perfect engineering.",
+      class: "bento-card--tactile",
+      skills: ["React", "Next.js", "TypeScript & JavaScript", "Tailwind CSS"],
+      items: []
+    }
+  };
+
+  // Logos that require high-contrast visibility fix
+  const darkLogos = ["Next.js", "Flask", "Git & GitHub", "Jupyter & Experimentation", "Pandas & NumPy"];
+
+  // Map JSON skills to categories
+  skills.forEach(skill => {
+    for (const [catName, catData] of Object.entries(categories)) {
+      if (catData.skills.includes(skill.name)) {
+        catData.items.push(skill);
+        break;
+      }
+    }
+  });
+
+  let skillHTML = "";
+
+  for (const [catName, catData] of Object.entries(categories)) {
+    let tilesHTML = "";
+    catData.items.forEach(item => {
+      const isDark = darkLogos.includes(item.name);
+      tilesHTML += `
+        <div class="skill-tile tilt ${isDark ? 'dark-icon-fix' : ''}">
+          <img src="${item.icon}" alt="${item.name}" />
+          <span>${item.name}</span>
+        </div>`;
+    });
+
+    skillHTML += `
+      <div class="bento-card ${catData.class} tilt">
+        <div class="bento-header">
+          <span class="bento-tag">${catData.tag}</span>
+          <h3 class="bento-title">${catName}</h3>
+          <p class="bento-desc">${catData.desc}</p>
+        </div>
+        <div class="skill-tiles-grid">
+          ${tilesHTML}
+        </div>
+      </div>
+    `;
+  }
+
+  // Set the container to the symmetrical grid
+  skillsContainer.className = "elite-skills-grid";
   skillsContainer.innerHTML = skillHTML;
+
+  if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll(".tilt"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+    });
+  }
 }
 
 function showProjects(projects) {
@@ -424,7 +502,7 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
 /* ==========================================
    PREMIUM STICKY SOCIAL BAR ANIMATION LOGIC
    ========================================== */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const stickyBar = document.getElementById('sticky-social-bar');
   const heroSection = document.querySelector('.home');
   const footerSection = document.querySelector('.footer');
@@ -443,11 +521,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // Check if either the hero or footer is currently intersecting the viewport
       // We need to keep track of their states. A simple way is to check bounding rects
       // or just maintain a state variable. For robustness against scrolling speeds:
-      
+
       const heroRect = heroSection.getBoundingClientRect();
       const footerRect = footerSection.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      
+
       // If hero bottom is below top of screen AND hero top is above bottom of screen
       const heroVisible = (heroRect.top <= windowHeight) && (heroRect.bottom >= 0);
       // If footer bottom is below top of screen AND footer top is above bottom of screen
@@ -465,15 +543,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial check on load
     sectionObserver.observe(heroSection);
     sectionObserver.observe(footerSection);
-    
+
     // Add a scroll listener as a highly responsive fallback for rapid scrolling
     window.addEventListener('scroll', () => {
       const heroRect = heroSection.getBoundingClientRect();
       const footerRect = footerSection.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      
+
       const heroVisible = (heroRect.bottom > 100); // 100px threshold for smoother exit
-      const footerVisible = (footerRect.top < windowHeight - 100); 
+      const footerVisible = (footerRect.top < windowHeight - 100);
 
       if (heroVisible || footerVisible) {
         stickyBar.classList.remove('show');

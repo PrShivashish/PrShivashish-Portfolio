@@ -539,92 +539,257 @@ header .navbar ul li a:hover {
 /* about media queries ends*/
 /* about section ends */
 
-/* skills section starts */
-.skills {
-  min-height: 90vh;
-  background: linear-gradient(to bottom, #57059e, #4a00e0);
+/* ======================== LUMINOUS SYMMETRICAL VAULT (MASTERPIECE) ======================== */
+.elite-skills-section {
+  position: relative;
+  min-height: 100vh;
+  background: #000000;
+  padding: 10rem 2rem 8rem;
+  color: #f8fafc;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.skills h2 {
-  color: #fff;
+/* Kinetic Blueprint Grid */
+.elite-skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+  z-index: -1;
+  opacity: 0.5;
 }
 
-.skills .heading span {
-  color: rgb(255, 230, 0);
+/* Kinetic Mouse-Follow Spotlight */
+.skills-spotlight {
+  position: absolute;
+  top: var(--mouse-y, 0%);
+  left: var(--mouse-x, 0%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(46, 114, 255, 0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.skills .container {
-  background: rgba(0, 0, 22, 0.4);
-  color: #fff;
-  border-radius: 1rem;
-  padding: 2rem;
-  width: 90%;
-  margin: auto;
-  margin-top: 2rem;
+.elite-skills-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-.skills .container .row {
+.elite-skills-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 4.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 40px rgba(46, 114, 255, 0.2);
+}
+
+.elite-skills-heading span {
+  color: #2E72FF;
+  text-shadow: 0 0 50px rgba(46, 114, 255, 0.6);
+}
+
+.elite-skills-sub {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.35rem;
+  color: #94a3b8;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 7rem;
+  line-height: 1.6;
+}
+
+/* Symmetrical Grid (Architectural Balance) */
+.elite-skills-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  flex-wrap: wrap;
-  gap: 1.8rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  align-items: stretch;
 }
 
-.skills .container .bar {
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 22, 0.9);
-  transition: 0.2s;
+/* Card - Standard Architectural Perimeter */
+.bento-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  border-radius: 44px;
+  padding: 4.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+  background-clip: padding-box;
 }
 
-.skills .container .bar:hover {
-  box-shadow: 0 8px 10px rgba(0, 2, 68, 0.8) !important;
-  background-color: rgba(0, 0, 0, 0.9) !important;
+/* Atmospheric Volumetric Glows */
+.bento-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--glow-color, rgba(255,255,255,0.02)) 0%, transparent 40%);
+  pointer-events: none;
+  opacity: 0.15;
+  transition: opacity 0.6s ease;
 }
 
-.skills .container .bar .info {
+.bento-card--cognitive { --glow-color: rgba(46, 114, 255, 0.3); }
+.bento-card--nervous { --glow-color: rgba(168, 85, 247, 0.2); }
+.bento-card--tactile { --glow-color: rgba(251, 191, 36, 0.2); }
+
+.bento-card:hover {
+  background: rgba(46, 114, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-12px);
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.9), 0 0 50px var(--glow-color);
+}
+
+.bento-card:hover::after { opacity: 0.3; }
+
+/* Category Header (Top Aligned) */
+.bento-header { margin-bottom: 3.5rem; }
+
+.bento-tag {
+  display: inline-flex;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+}
+
+.bento-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* Interior Grid (Optical Symmetry) */
+.skill-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  /* Top-aligned intentionally - margin-top auto removed */
+}
+
+/* The Skill Tile (Cream White Border Edition) */
+.skill-tile {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(255, 255, 255, 0.2); /* Cream White Base */
+  border-radius: 32px;
+  padding: 2.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
+  background-clip: padding-box;
 }
 
-.skills .container .bar .info i {
-  font-size: 4rem;
+.skill-tile img {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.5rem;
+  filter: grayscale(0.1) brightness(1.2);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.skills .container .bar .info span {
-  font-size: 2rem;
-  font-weight: 500;
-  font-family: "Poppins";
-  margin-left: 0.5rem;
+/* Luminous Mastery (Next.js, Flask, Git) */
+.dark-icon-fix img {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.95)) brightness(1.5) !important;
 }
 
-/* skills media queries starts*/
-@media screen and (max-width: 600px) {
-  .skills .container {
-    padding: 0;
-    margin: 0;
+.skill-tile span {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #94a3b8;
+  transition: color 0.4s ease;
+}
+
+/* Surgical Interaction Physics */
+.skill-tile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff; /* pure white activation */
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.skill-tile:hover img {
+  .bento-card--cognitive,
+  .bento-card--nervous {
+    grid-column: span 12;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .elite-skills-section {
+    padding: 8rem 1rem;
   }
 
-  .skills .container .row {
+  .elite-skills-heading {
+    font-size: 3.5rem;
+  }
+
+  .bento-card {
+    padding: 3rem 2rem;
+    border-radius: 30px;
+  }
+
+  .skill-tiles-grid {
     grid-template-columns: repeat(2, 1fr);
-    margin: 1rem;
-    padding: 2rem 0.2rem 2rem 0.2rem;
-    gap: 1rem;
-  }
-
-  .skills .container {
-    margin-top: 5px;
-    width: 100%;
   }
 }
 
-/* skills media queries ends*/
-/* skills section ends */
+/* Architectural Under-glow */
+.skill-tile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.5s ease;
+  filter: blur(10px);
+  opacity: 0.9;
+}
+
+.skill-tile:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ======================== END ELITE SKILLS ======================== */
 
 /* education section starts */
 .education {
@@ -1097,6 +1262,319 @@ header .navbar ul li a:hover {
 /* experience media queries ends */
 /* experience section ends */
 
+/* ======================== HOME CERTIFICATIONS SECTION ======================== */
+.home-certifications {
+  background: #fdfdfd;
+  padding: 8rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background accent for Surgical Spectrum */
+.home-certifications::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(255, 123, 0, 0.03) 0%, rgba(253, 253, 253, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-certifications::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(0, 115, 255, 0.03) 0%, rgba(253, 253, 253, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-cert-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.home-cert-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.elite-cert-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: -0.02em;
+  margin: 1rem 0;
+}
+
+.elite-cert-heading span {
+  background: linear-gradient(90deg, #ff7b00, #ff4500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.elite-cert-sub {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 3-Column Grid for Certs */
+.home-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Premium Card Base */
+.cert-vault-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.cert-vault-card:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+}
+
+/* Left Accent Strip */
+.cert-vault-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.cert-vault-card:hover::before {
+  width: 6px;
+}
+
+.cert-vault-card--orange::before {
+  background: linear-gradient(to bottom, #ff7b00, #ff9b30);
+}
+
+.cert-vault-card--blue::before {
+  background: linear-gradient(to bottom, #0073ff, #00c3ff);
+}
+
+.cert-vault-card--purple::before {
+  background: linear-gradient(to bottom, #7b2cbf, #9d4edd);
+}
+
+/* Header inside card */
+.cert-vault-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  transform: translateZ(20px);
+}
+
+.cert-vault-issuer-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+.cert-vault-badge--google {
+  background: #e8eaed;
+  color: #4285F4;
+}
+
+.cert-vault-badge--aws {
+  background: #fff1e5;
+  color: #FF9900;
+}
+
+.cert-vault-badge--ibm {
+  background: #e0f2fe;
+  color: #0f62fe;
+}
+
+.cert-vault-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.cert-vault-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #888;
+}
+
+.cert-vault-verified {
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: #e6f4ea;
+  color: #1e8e3e;
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+}
+
+.cert-vault-card-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+  transform: translateZ(30px);
+}
+
+.cert-vault-card-desc {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  transform: translateZ(20px);
+}
+
+.cert-vault-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  transform: translateZ(10px);
+}
+
+.cert-vault-card-tags span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #f5f5f7;
+  color: #444;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.cert-vault-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1.5rem;
+  margin-top: auto;
+  transform: translateZ(15px);
+}
+
+.cert-vault-cta {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ff7b00;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+}
+
+.cert-vault-cta:hover {
+  gap: 0.8rem;
+}
+
+.cert-vault-issuer-name {
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 600;
+}
+
+.vault-shield-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ff7b00;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.home-cert-viewall {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cert-btn {
+  background: transparent;
+  border: 2px solid #ff7b00;
+  color: #ff7b00;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.cert-btn:hover {
+  background: #ff7b00;
+  color: #fff;
+  gap: 1.2rem;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .home-cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-certifications {
+    padding: 6rem 1rem 4rem;
+  }
+
+  .elite-cert-heading {
+    font-size: 2.8rem;
+  }
+
+  .home-cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* contact section starts */
 .contact {
   background: #e5ecfb;
@@ -1438,7 +1916,7 @@ form .button-area {
 }
 
 #scroll-top.active {
-  top: calc(100% - 12rem);
+  top: calc(100% - 6.5rem);
 }
 
 /* scroll top ends */
@@ -1882,26 +2360,32 @@ form .button-area {
   color: #0e76a8;
   box-shadow: 0 5px 15px rgba(14, 118, 168, 0.4);
 }
+
 .sticky-social-bar .social-icons li a.github:hover {
   color: #333;
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
 }
+
 .sticky-social-bar .social-icons li a.twitter:hover {
   color: #1da1f2;
   box-shadow: 0 5px 15px rgba(29, 161, 242, 0.4);
 }
+
 .sticky-social-bar .social-icons li a.telegram:hover {
   color: #0088cc;
   box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
 }
+
 .sticky-social-bar .social-icons li a.instagram:hover {
   color: #e1306c;
   box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
 }
+
 .sticky-social-bar .social-icons li a.dev:hover {
   color: #000000;
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
+
 .sticky-social-bar .social-icons li a.whatsapp:hover {
   color: #25D366;
   box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
@@ -1909,6 +2393,7 @@ form .button-area {
 
 @media(max-width: 768px) {
   .sticky-social-bar {
-    display: none; /* Keep mobile clean from edge clutter */
+    display: none;
+    /* Keep mobile clean from edge clutter */
   }
 }
